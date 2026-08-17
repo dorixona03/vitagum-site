@@ -5,10 +5,11 @@
 const I18N = {
   ru: {
     'nav.products':'Продукты','nav.why':'Почему мы','nav.quality':'Качество','nav.contacts':'Контакты','nav.buy':'Uzum Market',
-    'hero.eyebrow':'Сделано в Узбекистане · Халяль · Без желатина',
-    'hero.t1':'Витамины,','hero.t2':'которые ребёнок','hero.t3':'просит сам',
-    'hero.sub':'Мармеладные мишки на цитрусовом пектине — вкус, за которым дети приходят сами, и польза, за которую их выбирают родители.',
-    'hero.cta1':'Смотреть продукты','hero.cta2':'Купить на Uzum',
+    'hero.t1':'Мишки всегда знают,','hero.t2':'как украсть сердце',
+    'hero.noteL':'Мишки замечают всё: витамин C для иммунитета, пектин вместо желатина — и ребёнка, который уже тянется за вторым.',
+    'hero.noteR':'У каждого мишки — свой характер, свой вкус и свой план: навсегда поселиться в вашей домашней аптечке.',
+    'hero.cta':'Познакомиться с мишками',
+    'hero.footL':'( Одобрено детьми и мишками )',
     'why.eyebrow':'Почему VITAGUM','why.title':'Польза, в которую влюбляются с первой мишки',
     'why.c1t':'желатина в составе','why.c1d':'Только цитрусовый пектин — растительная основа, подходящая веганам и разрешённая детям с 2 лет. Мягкая желейная текстура без животных ингредиентов.',
     'why.c2t':'продуктов в линейке','why.c2d':'От Omega-3 до коллагена — формула под каждую задачу.',
@@ -29,10 +30,11 @@ const I18N = {
   },
   uz: {
     'nav.products':'Mahsulotlar','nav.why':'Nega biz','nav.quality':'Sifat','nav.contacts':'Aloqa','nav.buy':'Uzum Market',
-    'hero.eyebrow':"O'zbekistonda ishlab chiqarilgan · Halol · Jelatinsiz",
-    'hero.t1':'Bolangiz','hero.t2':"o'zi so'raydigan",'hero.t3':'vitaminlar',
-    'hero.sub':"Sitrus pektini asosidagi marmelad ayiqchalar — bolalar ta'mi uchun o'zi keladi, ota-onalar foydasi uchun tanlaydi.",
-    'hero.cta1':"Mahsulotlarni ko'rish",'hero.cta2':'Uzum’da xarid qilish',
+    'hero.t1':'Ayiqchalar har doim biladi —','hero.t2':'qalbni qanday zabt etishni',
+    'hero.noteL':"Ayiqchalar hamma narsani payqaydi: immunitet uchun C vitamini, jelatin o‘rniga pektin va ikkinchi ayiqchaga qo‘l cho‘zayotgan bolani.",
+    'hero.noteR':"Har bir ayiqchaning o‘z fe’li, o‘z ta’mi va o‘z rejasi bor — uy dorixonangizdan abadiy joy olish.",
+    'hero.cta':'Ayiqchalar bilan tanishing',
+    'hero.footL':'( Bolalar va ayiqchalar ma’qullagan )',
     'why.eyebrow':'Nega VITAGUM','why.title':'Birinchi ayiqchadanoq sevib qolinadigan foyda',
     'why.c1t':'tarkibida jelatin','why.c1d':"Faqat sitrus pektini — o'simlik asosi, veganlar uchun mos va 2 yoshdan bolalarga ruxsat etilgan. Hayvon ingredientlarisiz yumshoq jele teksturasi.",
     'why.c2t':'turdagi mahsulot','why.c2d':'Omega-3 dan kollagengacha — har bir vazifa uchun formula.',
@@ -53,10 +55,11 @@ const I18N = {
   },
   en: {
     'nav.products':'Products','nav.why':'Why us','nav.quality':'Quality','nav.contacts':'Contacts','nav.buy':'Uzum Market',
-    'hero.eyebrow':'Made in Uzbekistan · Halal · Gelatin-free',
-    'hero.t1':'Vitamins','hero.t2':'your kids','hero.t3':'ask for',
-    'hero.sub':'Citrus-pectin gummy bears — a taste kids come back for, and benefits parents choose them for.',
-    'hero.cta1':'Browse products','hero.cta2':'Buy on Uzum',
+    'hero.t1':'Bears always know','hero.t2':'how to steal hearts',
+    'hero.noteL':'Bears notice everything: vitamin C for immunity, pectin instead of gelatin — and the kid already reaching for one more.',
+    'hero.noteR':"Every bear has its own character, its own flavour and a complete plan: to move into your family's medicine cabinet for good.",
+    'hero.cta':'Meet the bears',
+    'hero.footL':'( Kid-approved gummy vitamins )',
     'why.eyebrow':'Why VITAGUM','why.title':'Goodness you fall for from the very first bear',
     'why.c1t':'gelatin inside','why.c1d':'Only citrus pectin — a plant base suitable for vegans and safe for kids from age 2. A soft jelly texture with zero animal ingredients.',
     'why.c2t':'products in range','why.c2d':'From Omega-3 to collagen — a formula for every goal.',
@@ -288,8 +291,8 @@ if(window.gsap){
   gsap.registerPlugin(ScrollTrigger);
 
   // hero intro
-  gsap.to('.hero__line > span', {y:0, duration:1.1, ease:'power4.out', stagger:.12, delay:.15, startAt:{y:'110%'}});
-  gsap.to('.hero .reveal', {opacity:1, y:0, duration:1, ease:'power3.out', stagger:.14, delay:.55});
+  gsap.to('.hero .reveal', {opacity:1, y:0, duration:1.2, ease:'power3.out', stagger:.18, delay:.25});
+  gsap.from('.hero__foot', {opacity:0, duration:1.2, delay:1.4});
 
   // sections reveal
   document.querySelectorAll('.section__head, .why-card, .cert, .band__inner, .footer__grid').forEach(el=>{
@@ -314,8 +317,8 @@ if(window.gsap){
   });
 
   // hero parallax out
-  gsap.to('.hero__inner', {opacity:0, y:-80, ease:'none',
-    scrollTrigger:{trigger:'.hero', start:'60% top', end:'bottom top', scrub:true}});
+  gsap.to('.hero__title, .hero__note, .hero__cta', {opacity:0, y:-60, ease:'none',
+    scrollTrigger:{trigger:'.hero', start:'55% top', end:'bottom top', scrub:true}});
 }else{
   document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'});
   document.querySelectorAll('.hero__line > span').forEach(el=>el.style.transform='none');
